@@ -1,0 +1,22 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>JWDispatcherServlet</servlet-name>
+        <servlet-class>com.jw.ticket.spring.servlet.JWDispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>application.properties</param-value>
+        </init-param>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JWDispatcherServlet</servlet-name>
+        <!--/*的优先级比.jsp的要高，如果访问index.jsp文件的话会先经过DispatchServlet而/的优先级比.jsp的低-->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>
