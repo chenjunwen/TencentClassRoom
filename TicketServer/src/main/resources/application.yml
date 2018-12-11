@@ -1,0 +1,79 @@
+server:
+  port: 8088
+  tomcat:
+    max-threads: 1000
+## Spring DataSource
+spring:
+  datasource:
+    url:  jdbc:mysql://193.112.46.224:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: db_user
+    password: db_pass
+    ## 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    ## 简介 https://blog.csdn.net/xiaolyuh123/article/details/75315282?locationNum=6&fps=1
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      ## 最大连接池数量
+      max-active: 1
+      ## 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
+      initial-size: 1
+      ## 最小连接池数量
+      min-idle: 1
+      ## 配置获取连接等待超时的时间(毫秒)
+      max-wait: 6000
+      ## 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      ## 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      ## 用来检测连接是否有效的sql，要求是一个查询语句，常用select 'x'。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会起作用。
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      ## 是否缓存preparedStatement，也就是PSCache  官方建议MySQL下建议关闭   个人建议如果想用SQL防火墙 建议打开
+      max-pool-prepared-statement-per-connection-size: 20
+      pool-prepared-statements: true
+      ## 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      useGlobalDataSourceStat: true
+      ## 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filter: stat,wall,log4j
+      ## 基础监控配置
+      #是否启用StatFilter默认值true
+      web-stat-filter:
+        enabled: true
+        ## 不统计那些url
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        ## 禁止手动重置监控数据
+        reset-enable: true
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: admin
+        filter:
+          stat:
+            log-slow-sql: true
+            slow-sql-millis: 1000
+            merge-sql: true
+          wall:
+            config:
+              multi-statement-allow: true
+  jpa:
+    database: mysql
+    show-sql: false
+    hibernate:
+      ## 只在第一次加载hibernate时自动生成数据库表结构，以后再次加载hibernate时根据model类自动更新表结构
+      ddl-auto: update
+    # 数据库方言
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  rabbitmq:
+    host: 52.80.63.100
+    port: 5672
+    username: gi
+    password: 123456
+    listener:
+      direct:
+        prefetch: 1
+

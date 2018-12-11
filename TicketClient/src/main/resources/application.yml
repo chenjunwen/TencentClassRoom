@@ -1,0 +1,8 @@
+server:
+  port: 8089
+spring:
+  rabbitmq:
+    host: 52.80.63.100
+    port: 5672
+    username: gi
+    password: 123456
