@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.DS_Store
+.gitignore
+.idea/workspace.xml
+JWSpringMvc/out/artifacts/JWSpringMvc_war_exploded/WEB-INF/
+JWSpringMvc/src/main/java/com/jw/spring/
+JWSpringMvc/src/main/java/com/jw/ticket/spring/utils/
+TicketServer/src/main/resources/static/
+TicketServer/src/main/resources/templates/

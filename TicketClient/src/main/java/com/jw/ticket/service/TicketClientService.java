@@ -14,4 +14,10 @@ public interface TicketClientService {
      * @return
      */
     String sendMQBuyTicket(String id);
+
+    /**
+     * 模拟调用多个服务使用行的方式处理
+     * @return
+     */
+    String parallelQuery();
 }

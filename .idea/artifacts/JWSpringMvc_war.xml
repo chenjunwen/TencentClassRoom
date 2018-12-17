@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JWSpringMvc:war">
+    <output-path>$PROJECT_DIR$/JWSpringMvc/target</output-path>
+    <root id="archive" name="JWSpringMvc.war">
+      <element id="artifact" artifact-name="JWSpringMvc:war exploded" />
+    </root>
+  </artifact>
+</component>
