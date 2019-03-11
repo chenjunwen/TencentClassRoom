@@ -35,7 +35,6 @@ public class JWDispatcherServlet extends HttpServlet {
      * 存储所有的类名
      */
     private List<String> classNames = new ArrayList<>();
-
     /**
      * 存储所有需要注入的对象
      */

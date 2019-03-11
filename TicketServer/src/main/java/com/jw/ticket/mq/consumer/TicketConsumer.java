@@ -38,14 +38,14 @@ public class TicketConsumer {
     @RabbitHandler
     public void process(String msg){
         // 模拟下单操作
-        System.out.println("出票成功--------------rabbitMq");
-        try {
+        System.out.println("出票成功--------------rabbitMq------->>");
+        /*try {
             // 休眠一秒看是同步还是异步
             Thread.sleep(1000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         // 模拟查询订单数据
         System.out.println("msg-------->>:"+msg);
         final String s = ticketServerService.buyTicket(null, null);

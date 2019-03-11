@@ -61,4 +61,18 @@ public interface MqQueueConstant {
     String TOPIC_TWO_ROUTING_KEY = "topic.#";
 
     String TOPIC_THREE_ROUTING_KEY = "topic.*.z";
+
+    /**
+     * 消息延迟队列
+     */
+
+    /**
+     * 消息延迟队列
+     */
+
+    String DELAYED_EXCHANGE = "delayed_exchange";
+
+    String DELAYED_ROUTING = "notify";
+
+    String DELAYED_QUEUE = "delayed_queue";
 }
